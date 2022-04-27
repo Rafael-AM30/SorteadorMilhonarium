@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SorteadorMilhonarium", "SorteadorMilhonarium\SorteadorMilhonarium.csproj", "{B0F9BF66-E321-4DFC-A063-25FA9E8020C1}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Sorteador Milhonarium Install", "SorteadorMilhonarium\Instalador\Sorteador Milhonarium Install\Sorteador Milhonarium Install.vdproj", "{3BA9DC99-F200-421B-B957-87B5062EC562}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0F9BF66-E321-4DFC-A063-25FA9E8020C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0F9BF66-E321-4DFC-A063-25FA9E8020C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0F9BF66-E321-4DFC-A063-25FA9E8020C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0F9BF66-E321-4DFC-A063-25FA9E8020C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BA9DC99-F200-421B-B957-87B5062EC562}.Debug|Any CPU.ActiveCfg = Debug
+		{3BA9DC99-F200-421B-B957-87B5062EC562}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6650AD6-6001-4952-96F2-E4C0C18C456A}
+	EndGlobalSection
+EndGlobal
