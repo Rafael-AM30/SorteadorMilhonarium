@@ -7,7 +7,7 @@ Console.Title = "S.I.M - Sorteador Inteligente Milhonarium 0.5.1"; // Nome do Pr
 
 #region Variaveis 
 Random dado = new Random();
-int numeroSorteado = dado.Next(1, 11);
+int numeroSorteado = dado.Next(1, 10);
 
 int primeiroNumP1 = 0;
 int segundoNumP1 = 0;
@@ -44,8 +44,6 @@ int bonus7 = 700_000;
 int bonus100 = 100;
 bool par = numeroSorteado % 2 == 0;
 int anoAtual = DateTime.Today.Year; // Ano atual
-int qualificados = 0;
-
 #endregion Variaveis
 
 #region Cadastro dos Participantes 
@@ -227,21 +225,6 @@ if (numeroWinP5 > 0)
     numDeVencedores++;
 }
 #endregion Contagem dos Ganhadores
-
-#region Contagem dos Qualificados
-
-if (status1 = true)
-    qualificados++;
-if (status2 = true)
-    qualificados++;
-if (status3 = true)
-    qualificados++;
-if (status4 = true)
-    qualificados++;
-if (status5 = true)
-    qualificados++;
-
-#endregion Contagem Qualificados
 
 #region Premiação
 if (numDeVencedores == 5)
@@ -585,18 +568,18 @@ else if (numDeVencedores == 0)
     {
         MsgFail.ngmAcertou();
 
-        Console.WriteLine("Nenhum dos participante acertou. Então, 10% do premio sera dividido igualmente entre Cada participante QUALIFICADO");
-        double dezPorCentoDividido = (premioConsolo / qualificados);
+        Console.WriteLine("Cada Participante QUALIFICADO recebera cada um 10% do valor de R$ 1.000.000,00 como prêmio de Participação ");
+
         if (status1)
-            Console.WriteLine($"{nome1} com {idade1} anos de idade recebera: {dezPorCentoDividido.ToString("000,000.00")} ");
+            Console.WriteLine($"{nome1} com {idade1} anos de idade recebera: {premioConsolo.ToString("000,000.00")} ");
         if (status2)
-            Console.WriteLine($"{nome2} com {idade2} anos de idade recebera: {dezPorCentoDividido.ToString("000,000.00")} ");
+            Console.WriteLine($"{nome2} com {idade2} anos de idade recebera: {premioConsolo.ToString("000,000.00")} ");
         if (status3)
-            Console.WriteLine($"{nome3} com {idade3} anos de idade recebera: {dezPorCentoDividido.ToString("000,000.00")} ");
+            Console.WriteLine($"{nome3} com {idade3} anos de idade recebera: {premioConsolo.ToString("000,000.00")} ");
         if (status4)
-            Console.WriteLine($"{nome4} com {idade4} anos de idade recebera: {dezPorCentoDividido.ToString("000,000.00")} ");
+            Console.WriteLine($"{nome4} com {idade4} anos de idade recebera: {premioConsolo.ToString("000,000.00")} ");
         if (status5)
-            Console.WriteLine($"{nome5} com {idade5} anos de idade recebera: {dezPorCentoDividido.ToString("000,000.00")} ");
+            Console.WriteLine($"{nome5} com {idade5} anos de idade recebera: {premioConsolo.ToString("000,000.00")} ");
 
         Console.ReadKey();
     }
