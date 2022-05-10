@@ -6,9 +6,6 @@ Console.Clear();
 Console.Title = "S.I.M - Sorteador Inteligente Milhonarium 0.5.1"; // Nome do Programa
 
 #region Variaveis 
-Random dado = new Random();
-int numeroSorteado = dado.Next(1, 10);
-
 int primeiroNumP1 = 0;
 int segundoNumP1 = 0;
 int terceiroNumP1 = 0;
@@ -28,21 +25,21 @@ int terceiroNumP4 = 0;
 int primeiroNumP5 = 0;
 int segundoNumP5 = 0;
 int terceiroNumP5 = 0;
-//----------------------------------Variaveis dos Vencedores-------------------------------//
+
 int numeroWinP1 = 0;
 int numeroWinP2 = 0;
 int numeroWinP3 = 0;
 int numeroWinP4 = 0;
 int numeroWinP5 = 0;
 
-//--------------------------------------Variaveis Pessoas----------------------------------//              
+int numDeQualificados =0;
 int numDeVencedores = 0;
 int valorDoPremio = 1_000_000; // Valor do Sorteio 
-double premioConsolo = 0.1 * valorDoPremio;
+
 int bonusPar = 500;
 int bonus7 = 700_000;
 int bonus100 = 100;
-bool par = numeroSorteado % 2 == 0;
+
 int anoAtual = DateTime.Today.Year; // Ano atual
 #endregion Variaveis
 
@@ -147,23 +144,13 @@ Console.Clear();
 #endregion Cadastro dos Participantes
 
 #region Dado (random) 
-Console.Write("Preparando Dado.");
-Thread.Sleep(1000);
-Console.Write(".");
-Thread.Sleep(1000);
-Console.Write(".");
-Thread.Sleep(1000);
-Console.Write(".");
-Thread.Sleep(700);
-Console.Clear();
-Console.Write("Iniciando Sorteio..");
-Console.Write(".");
-Thread.Sleep(1000);
-Console.Write(".");
-Thread.Sleep(1000);
-Console.WriteLine(".");
-Thread.Sleep(1000);
+
+Random dado = new Random();
+int numeroSorteado = 7; //dado.Next(1, 10);
+bool par = numeroSorteado % 2 == 0;
+
 Console.WriteLine($" O numero Sorteado foi: {numeroSorteado}\n");
+
 #endregion 
 
 #region Junção dos Numeros
@@ -171,60 +158,65 @@ if (numeroSorteado == primeiroNumP1 || numeroSorteado == segundoNumP1 || numeroS
 {
     Console.WriteLine($" {nome1} Acertou o numero sorteado {numeroSorteado}\n");
     numeroWinP1 = numeroSorteado;
-
 }
 
 if (numeroSorteado == primeiroNumP2 || numeroSorteado == segundoNumP2 || numeroSorteado == terceiroNumP2)
 {
     Console.WriteLine($" {nome2} Acertou o numero sorteado {numeroSorteado}\n");
     numeroWinP2 = numeroSorteado;
-
 }
 
 if (numeroSorteado == primeiroNumP3 || numeroSorteado == segundoNumP3 || numeroSorteado == terceiroNumP3)
 {
     Console.WriteLine($" {nome3} Acertou o numero sorteado {numeroSorteado} \n");
     numeroWinP3 = numeroSorteado;
-
 }
 
 if (numeroSorteado == primeiroNumP4 || numeroSorteado == segundoNumP4 || numeroSorteado == terceiroNumP4)
 {
     Console.WriteLine($" {nome4} Acertou o numero sorteado {numeroSorteado} \n");
     numeroWinP4 = numeroSorteado;
-
 }
 
 if (numeroSorteado == primeiroNumP5 || numeroSorteado == segundoNumP5 || numeroSorteado == terceiroNumP5)
 {
     Console.WriteLine($" {nome5} Acertou o numero sorteado {numeroSorteado}\n");
     numeroWinP5 = numeroSorteado;
-
 }
 #endregion Junção dos Numeros
 
 #region Contagem dos Ganhadores
+
 if (numeroWinP1 > 0)
-{
     numDeVencedores++;
-}
+
 if (numeroWinP2 > 0)
-{
     numDeVencedores++;
-}
+
 if (numeroWinP3 > 0)
-{
     numDeVencedores++;
-}
+
 if (numeroWinP4 > 0)
-{
     numDeVencedores++;
-}
+
 if (numeroWinP5 > 0)
-{
     numDeVencedores++;
-}
+
 #endregion Contagem dos Ganhadores
+
+#region Contagem dos Qualificados
+if (status1)
+    numDeQualificados++;
+if (status2)
+    numDeQualificados++;
+if (status3)
+    numDeQualificados++;
+if (status4)
+    numDeQualificados++;
+if (status5)
+    numDeQualificados++;
+
+#endregion Contagem dos Qualificados
 
 #region Premiação
 if (numDeVencedores == 5)
@@ -255,11 +247,11 @@ if (numDeVencedores == 5)
 
         Console.WriteLine(" Como o numero sorteado foi um numero Par\n" +
             " Os participantes vencedores receberão o valor de R$ 500,00 a mais cada um!");
-        Console.WriteLine($" {nome1} recebera = {totalBonusPar_bonus100_1.ToString("R$ 000,000.00")} \n");
-        Console.WriteLine($" {nome2} recebera = {totalBonusPar_bonus100_2.ToString("R$ 000,000.00")} \n");
-        Console.WriteLine($" {nome3} recebera = {totalBonusPar_bonus100_3.ToString("R$ 000,000.00")} \n");
-        Console.WriteLine($" {nome4} recebera = {totalBonusPar_bonus100_4.ToString("R$ 000,000.00")} \n");
-        Console.WriteLine($" {nome5} recebera = {totalBonusPar_bonus100_5.ToString("R$ 000,000.00")} \n");
+        Console.WriteLine($" {nome1} com {idade1} anos de idade recebera = {totalBonusPar_bonus100_1.ToString("R$ 000,000.00")} \n");
+        Console.WriteLine($" {nome2} com {idade2} anos de idade recebera = {totalBonusPar_bonus100_2.ToString("R$ 000,000.00")} \n");
+        Console.WriteLine($" {nome3} com {idade3} anos de idade recebera = {totalBonusPar_bonus100_3.ToString("R$ 000,000.00")} \n");
+        Console.WriteLine($" {nome4} com {idade4} anos de idade recebera = {totalBonusPar_bonus100_4.ToString("R$ 000,000.00")} \n");
+        Console.WriteLine($" {nome5} com {idade5} anos de idade recebera = {totalBonusPar_bonus100_5.ToString("R$ 000,000.00")} \n");
 
         Thread.Sleep(7000);
         Console.WriteLine(" Aperte Qualquer Tecla para Finalizar");
@@ -268,11 +260,11 @@ if (numDeVencedores == 5)
     }
     else
     {
-        Console.WriteLine($" {nome1} recebera: {totalBonus100_1.ToString("R$ 000,000.00")}");
-        Console.WriteLine($" {nome2} recebera: {totalBonus100_2.ToString("R$ 000,000.00")}");
-        Console.WriteLine($" {nome3} recebera: {totalBonus100_3.ToString("R$ 000,000.00")}");
-        Console.WriteLine($" {nome4} recebera: {totalBonus100_4.ToString("R$ 000,000.00")}");
-        Console.WriteLine($" {nome5} recebera: {totalBonus100_5.ToString("R$ 000,000.00")}");
+        Console.WriteLine($" {nome1} com {idade1} anos de idade recebera: {totalBonus100_1.ToString("R$ 000,000.00")}");
+        Console.WriteLine($" {nome2} com {idade2} anos de idade recebera: {totalBonus100_2.ToString("R$ 000,000.00")}");
+        Console.WriteLine($" {nome3} com {idade3} anos de idade recebera: {totalBonus100_3.ToString("R$ 000,000.00")}");
+        Console.WriteLine($" {nome4} com {idade4} anos de idade recebera: {totalBonus100_4.ToString("R$ 000,000.00")}");
+        Console.WriteLine($" {nome5} com {idade5} anos de idade recebera: {totalBonus100_5.ToString("R$ 000,000.00")}");
 
         Thread.Sleep(7000);
         Console.WriteLine(" Aperte Qualquer Tecla para Finalizar");
@@ -309,15 +301,15 @@ else if (numDeVencedores == 4)
         Console.WriteLine(" Como o numero sorteado foi um numero Par\n" +
             " Os participantes vencedores receberão o valor de R$ 500,00 a mais cada um! \n");
         if (numeroWinP1 > 0)
-            Console.WriteLine($" {nome1} recebera = {totalBonusPar_bonus100_1.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome1} com {idade1} anos de idade recebera = {totalBonusPar_bonus100_1.ToString("R$ 000,000.00")} \n");
         if (numeroWinP2 > 0)
-            Console.WriteLine($" {nome2} recebera = {totalBonusPar_bonus100_2.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome2} com {idade2} anos de idade recebera = {totalBonusPar_bonus100_2.ToString("R$ 000,000.00")} \n");
         if (numeroWinP3 > 0)
-            Console.WriteLine($" {nome3} recebera = {totalBonusPar_bonus100_3.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome3} com {idade3} anos de idade recebera = {totalBonusPar_bonus100_3.ToString("R$ 000,000.00")} \n");
         if (numeroWinP4 > 0)
-            Console.WriteLine($" {nome4} recebera = {totalBonusPar_bonus100_4.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome4} com {idade4} anos de idade recebera = {totalBonusPar_bonus100_4.ToString("R$ 000,000.00")} \n");
         if (numeroWinP5 > 0)
-            Console.WriteLine($" {nome5} recebera = {totalBonusPar_bonus100_5.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome5} com {idade5} anos de idade recebera = {totalBonusPar_bonus100_5.ToString("R$ 000,000.00")} \n");
 
         Thread.Sleep(8000);
         Console.WriteLine(" Aperte Qualquer Tecla para Finalizar");
@@ -327,15 +319,15 @@ else if (numDeVencedores == 4)
     else
     {
         if (numeroWinP1 > 0)
-            Console.WriteLine($" {nome1} recebera: {totalBonus100_1.ToString("R$ 000,000.00")}");
+            Console.WriteLine($" {nome1} com {idade1} anos de idade recebera: {totalBonus100_1.ToString("R$ 000,000.00")}");
         if (numeroWinP2 > 0)
-            Console.WriteLine($" {nome2} recebera: {totalBonus100_2.ToString("R$ 000,000.00")}");
+            Console.WriteLine($" {nome2} com {idade2} anos de idade recebera: {totalBonus100_2.ToString("R$ 000,000.00")}");
         if (numeroWinP3 > 0)
-            Console.WriteLine($" {nome3} recebera: {totalBonus100_3.ToString("R$ 000,000.00")}");
+            Console.WriteLine($" {nome3} com {idade3} anos de idade recebera: {totalBonus100_3.ToString("R$ 000,000.00")}");
         if (numeroWinP4 > 0)
-            Console.WriteLine($" {nome4} recebera: {totalBonus100_4.ToString("R$ 000,000.00")}");
+            Console.WriteLine($" {nome4} com {idade4} anos de idade recebera: {totalBonus100_4.ToString("R$ 000,000.00")}");
         if (numeroWinP5 > 0)
-            Console.WriteLine($" {nome5} recebera: {totalBonus100_5.ToString("R$ 000,000.00")}");
+            Console.WriteLine($" {nome5} com {idade5} anos de idade recebera: {totalBonus100_5.ToString("R$ 000,000.00")}");
 
         Thread.Sleep(7000);
         Console.WriteLine(" Aperte Qualquer Tecla para Finalizar");
@@ -372,15 +364,15 @@ else if (numDeVencedores == 3)
         Console.WriteLine(" Como o numero sorteado foi um numero Par\n" +
             " Os participantes vencedores receberão o valor de R$ 500,00 a mais cada um! \n");
         if (numeroWinP1 > 0)
-            Console.WriteLine($" {nome1} recebera = {totalBonusPar_bonus100_1.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome1} com {idade1} anos de idade recebera = {totalBonusPar_bonus100_1.ToString("R$ 000,000.00")} \n");
         if (numeroWinP2 > 0)
-            Console.WriteLine($" {nome2} recebera = {totalBonusPar_bonus100_2.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome2} com {idade2} anos de idade recebera = {totalBonusPar_bonus100_2.ToString("R$ 000,000.00")} \n");
         if (numeroWinP3 > 0)
-            Console.WriteLine($" {nome3} recebera = {totalBonusPar_bonus100_3.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome3} com {idade3} anos de idade recebera = {totalBonusPar_bonus100_3.ToString("R$ 000,000.00")} \n");
         if (numeroWinP4 > 0)
-            Console.WriteLine($" {nome4} recebera = {totalBonusPar_bonus100_4.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome4} com {idade4} anos de idade recebera = {totalBonusPar_bonus100_4.ToString("R$ 000,000.00")} \n");
         if (numeroWinP5 > 0)
-            Console.WriteLine($" {nome5} recebera = {totalBonusPar_bonus100_5.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome5} com {idade5} anos de idade recebera = {totalBonusPar_bonus100_5.ToString("R$ 000,000.00")} \n");
 
         Thread.Sleep(8000);
         Console.WriteLine(" Aperte Qualquer Tecla para Finalizar");
@@ -390,15 +382,15 @@ else if (numDeVencedores == 3)
     else
     {
         if (numeroWinP1 > 0)
-            Console.WriteLine($" {nome1} recebera: {totalBonus100_1.ToString("R$ 000,000.00")}");
+            Console.WriteLine($" {nome1} com {idade1} anos de idade recebera: {totalBonus100_1.ToString("R$ 000,000.00")}");
         if (numeroWinP2 > 0)
-            Console.WriteLine($" {nome2} recebera: {totalBonus100_2.ToString("R$ 000,000.00")}");
+            Console.WriteLine($" {nome2} com {idade2} anos de idade recebera: {totalBonus100_2.ToString("R$ 000,000.00")}");
         if (numeroWinP3 > 0)
-            Console.WriteLine($" {nome3} recebera: {totalBonus100_3.ToString("R$ 000,000.00")}");
+            Console.WriteLine($" {nome3} com {idade3} anos de idade recebera: {totalBonus100_3.ToString("R$ 000,000.00")}");
         if (numeroWinP4 > 0)
-            Console.WriteLine($" {nome4} recebera: {totalBonus100_4.ToString("R$ 000,000.00")}");
+            Console.WriteLine($" {nome4} com {idade4} anos de idade recebera: {totalBonus100_4.ToString("R$ 000,000.00")}");
         if (numeroWinP5 > 0)
-            Console.WriteLine($" {nome5} recebera: {totalBonus100_5.ToString("R$ 000,000.00")}");
+            Console.WriteLine($" {nome5} com {idade5} anos de idade recebera: {totalBonus100_5.ToString("R$ 000,000.00")}");
 
         Thread.Sleep(7000);
         Console.WriteLine(" Aperte Qualquer Tecla para Finalizar");
@@ -435,15 +427,15 @@ else if (numDeVencedores == 2)
         Console.WriteLine(" Como o numero sorteado foi um numero Par\n" +
             " Os participantes vencedores receberão o valor de R$ 500,00 a mais cada um! \n");
         if (numeroWinP1 > 0)
-            Console.WriteLine($" {nome1} recebera = {totalBonusPar_bonus100_1.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome1} com {idade1} anos de idade recebera = {totalBonusPar_bonus100_1.ToString("R$ 000,000.00")} \n");
         if (numeroWinP2 > 0)
-            Console.WriteLine($" {nome2} recebera = {totalBonusPar_bonus100_2.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome2} com {idade2} anos de idade recebera = {totalBonusPar_bonus100_2.ToString("R$ 000,000.00")} \n");
         if (numeroWinP3 > 0)
-            Console.WriteLine($" {nome3} recebera = {totalBonusPar_bonus100_3.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome3} com {idade3} anos de idade recebera = {totalBonusPar_bonus100_3.ToString("R$ 000,000.00")} \n");
         if (numeroWinP4 > 0)
-            Console.WriteLine($" {nome4} recebera = {totalBonusPar_bonus100_4.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome4} com {idade4} anos de idade recebera = {totalBonusPar_bonus100_4.ToString("R$ 000,000.00")} \n");
         if (numeroWinP5 > 0)
-            Console.WriteLine($" {nome5} recebera = {totalBonusPar_bonus100_5.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome5} com {idade5} anos de idade recebera = {totalBonusPar_bonus100_5.ToString("R$ 000,000.00")} \n");
 
         Thread.Sleep(8000);
         Console.WriteLine("Aperte Qualquer Tecla para Finalizar");
@@ -453,15 +445,15 @@ else if (numDeVencedores == 2)
     else
     {
         if (numeroWinP1 > 0)
-            Console.WriteLine($" {nome1} recebera: {totalBonus100_1.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome1} com {idade1} anos de idade recebera: {totalBonus100_1.ToString("R$ 000,000.00")} \n");
         if (numeroWinP2 > 0)
-            Console.WriteLine($" {nome2} recebera: {totalBonus100_2.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome2} com {idade2} anos de idade recebera: {totalBonus100_2.ToString("R$ 000,000.00")} \n");
         if (numeroWinP3 > 0)
-            Console.WriteLine($" {nome3} recebera: {totalBonus100_3.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome3} com {idade3} anos de idade recebera: {totalBonus100_3.ToString("R$ 000,000.00")} \n");
         if (numeroWinP4 > 0)
-            Console.WriteLine($" {nome4} recebera: {totalBonus100_4.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome4} com {idade4} anos de idade recebera: {totalBonus100_4.ToString("R$ 000,000.00")} \n");
         if (numeroWinP5 > 0)
-            Console.WriteLine($" {nome5} recebera: {totalBonus100_5.ToString("R$ 000,000.00")} \n");
+            Console.WriteLine($" {nome5} com {idade5} anos de idade recebera: {totalBonus100_5.ToString("R$ 000,000.00")} \n");
 
         Thread.Sleep(7000);
         Console.WriteLine(" Aperte Qualquer Tecla para Finalizar");
@@ -556,9 +548,10 @@ else if (numDeVencedores == 1)
 
 else if (numDeVencedores == 0)
 {
-    if (status1 == false && status2 == false && status3 == false && status4 == false && status5 == false)
+ 
+    if (numDeQualificados == 0)
     {
-        Console.WriteLine(" Todos os participantes estão Desqualificados para Participar do Sorteio");
+        Console.WriteLine(" Todos os participantes estão Desqualificados para Participar do Sorteio\n");
 
         Thread.Sleep(8000);
         Console.WriteLine(" Aperte Qualquer Tecla para Finalizar");
@@ -566,20 +559,22 @@ else if (numDeVencedores == 0)
     }
     else
     {
+        int premioConsolo = (100000 / numDeQualificados);
         MsgFail.ngmAcertou();
 
-        Console.WriteLine("Cada Participante QUALIFICADO recebera cada um 10% do valor de R$ 1.000.000,00 como prêmio de Participação ");
+        Console.WriteLine("10% do valor de R$ 1.000.000,00 será dividido igualmente entre os Participantes \n" +
+                          "Qualificados como prêmio de Participação\n");
 
         if (status1)
-            Console.WriteLine($"{nome1} com {idade1} anos de idade recebera: {premioConsolo.ToString("000,000.00")} ");
+            Console.WriteLine($"{nome1} com {idade1} anos de idade recebera: {premioConsolo.ToString("R$ 00,000.00")} \n");
         if (status2)
-            Console.WriteLine($"{nome2} com {idade2} anos de idade recebera: {premioConsolo.ToString("000,000.00")} ");
+            Console.WriteLine($"{nome2} com {idade2} anos de idade recebera: {premioConsolo.ToString("R$ 00,000.00")} \n");
         if (status3)
-            Console.WriteLine($"{nome3} com {idade3} anos de idade recebera: {premioConsolo.ToString("000,000.00")} ");
+            Console.WriteLine($"{nome3} com {idade3} anos de idade recebera: {premioConsolo.ToString("R$ 00,000.00")} \n");
         if (status4)
-            Console.WriteLine($"{nome4} com {idade4} anos de idade recebera: {premioConsolo.ToString("000,000.00")} ");
+            Console.WriteLine($"{nome4} com {idade4} anos de idade recebera: {premioConsolo.ToString("R$ 00,000.00")} \n");
         if (status5)
-            Console.WriteLine($"{nome5} com {idade5} anos de idade recebera: {premioConsolo.ToString("000,000.00")} ");
+            Console.WriteLine($"{nome5} com {idade5} anos de idade recebera: {premioConsolo.ToString("R$ 00,000.00")} \n");
 
         Console.ReadKey();
     }
